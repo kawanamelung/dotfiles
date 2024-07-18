@@ -1,6 +1,8 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:kawanamelung/nvim.git
+	branch = master
 [submodule "secrets"]
 	path = secrets
 	url = https://github.com/kawanamelung/secrets.git
+	branch = master
