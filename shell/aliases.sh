@@ -1,8 +1,11 @@
 # shell config
 alias d='cd ~/.dotfiles/'
+alias s='source ~/.zshrc'
+alias b='source ~/.bashrc'
+
 alias z='nvim ~/.zshrc'
 alias rc='nvim ~/.bashrc'
-alias s='source ~/.zshrc'
+alias aa='nvim ~/.aliases.sh'
 
 # colorize the ls output
 alias ls='ls --color=auto'
