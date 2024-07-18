@@ -2,6 +2,6 @@
 	path = secrets
 	url = https://github.com/kawanamelung/secrets.git
 	branch = master
-[submodule "nvim"]
+[submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = https://github.com/kawanamelung/nvim.git
