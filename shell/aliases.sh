@@ -21,8 +21,10 @@ alias g='grep --color=always'
 
 # clear
 alias c='clear'
+
 # nvim
 alias nv='nvim ~/.config/nvim/lua/'
+alias cdnv='cd ~/.config/nvim/lua/'
 alias swp="cd $HOME/.local/state/nvim/swap"
 
 # history
