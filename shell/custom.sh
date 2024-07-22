@@ -1,7 +1,15 @@
-
 export PYTHON_PROJECTS=$HOME/Python
+
 export DAB_DIR=$PYTHON_PROJECTS/Games/dots_and_boxes/
 dab() {
     cd $DAB_DIR
     source $DAB_DIR/dab_env/bin/activate
 }
+
+export TREE_DIR=$PYTHON_PROJECTS/ascii_treez/
+tree_env(){
+    cd $TREE_DIR
+    export PYTHONPATH=$TREE_DIR
+}
+export PATH=$TREE_DIR/treez/cli:$PATH
+

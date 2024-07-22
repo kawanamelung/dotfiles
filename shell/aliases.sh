@@ -31,7 +31,7 @@ alias h100='history -n 100'
 
 # env debugging
 alias echop='echo $PATH | tr ":" "\n"'
-alias echopp='echo $PYTHON_PATH | tr ":" "\n"'
+alias echopp='echo $PYTHONPATH | tr ":" "\n"'
 alias pp=' | tr ":" "\n"'
 
 # tmux

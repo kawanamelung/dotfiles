@@ -4,3 +4,6 @@
 [submodule "secrets"]
 	path = secrets
 	url = git@github.com:kawanamelung/secrets.git
+[submodule "scripts/ascii_treez"]
+	path = scripts/ascii_treez
+	url = git@github.com:kawanamelung/ascii_treez.git
