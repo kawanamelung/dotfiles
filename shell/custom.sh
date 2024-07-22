@@ -6,10 +6,9 @@ dab() {
     source $DAB_DIR/dab_env/bin/activate
 }
 
-export TREE_DIR=$PYTHON_PROJECTS/ascii_treez/
-tree_env(){
-    cd $TREE_DIR
-    export PYTHONPATH=$TREE_DIR
-}
+# ascii treez
+export TREE_DIR=~/.dotfiles/scripts/ascii_treez/
+export PYTHONPATH=$TREE_DIR:$PYTHONPATH
 export PATH=$TREE_DIR/treez/cli:$PATH
+alias tr='cd $TREE_DIR'
 
