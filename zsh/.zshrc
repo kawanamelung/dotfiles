@@ -1,7 +1,10 @@
-source ~/aliases.sh
-source ~/functions.sh
-source ~/custom.sh
-source ~/secrets.sh
+if [ -z "${DOTFILES}" ]; then
+  # If the environment variable is not set, set it to the desired value
+  export DOTFILES="$HOME/.dotfiles"
+fi
+
+source $DOTFILES/shell/source.sh
+source $dotfiles/secrets/secrets.sh
 
 # add homebrew (mac)
 export PATH=/opt/homebrew/bin:$PATH

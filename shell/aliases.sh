@@ -1,11 +1,11 @@
 # shell config
-alias d='cd ~/.dotfiles/'
-alias s='source ~/.zshrc'
+alias d='cd $DOTFILES'
+alias s='source $DOTFILES/.zshrc'
 alias b='source ~/.bashrc'
 
-alias z='nvim ~/.zshrc'
+    alias z='nvim $DOTFILES/zsh/.zshrc'
 alias rc='nvim ~/.bashrc'
-alias aa='nvim ~/.aliases.sh'
+alias aa='nvim $DOTFILES/shell/aliases.sh'
 
 # colorize the ls output
 alias ls='ls --color=auto'
@@ -23,7 +23,7 @@ alias g='grep --color=always'
 alias c='clear'
 
 # nvim
-alias nv='cd ~/.config/nvim/lua/'
+alias nv='cd $DOTFILES/nvim/.config/nvim/lua/'
 alias swp="cd $HOME/.local/state/nvim/swap"
 
 # history
@@ -47,7 +47,7 @@ alias ts='tmux switch -t'
 alias tt='tmux list-keys'
 
 # git aliases
-alias gl='git pull'
+alias gl='git log --all --graph --decorate --pretty=format:"%C(yellow)%h%C(reset) - %C(cyan)%cr%C(reset)  %C(green)%cn%C(reset) %C(auto)%d%C(reset) %s"'
 alias gp='git push'
 alias ga='git add'
 alias gs='git status'
