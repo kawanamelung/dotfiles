@@ -4,7 +4,7 @@ if [ -z "${DOTFILES}" ]; then
 fi
 
 source $DOTFILES/shell/source.sh
-source $dotfiles/secrets/secrets.sh
+source $DOTFILES/secrets/secrets.sh
 
 # add homebrew (mac)
 export PATH=/opt/homebrew/bin:$PATH
