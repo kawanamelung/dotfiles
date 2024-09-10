@@ -1,11 +1,12 @@
 # shell config
 alias d='cd $DOTFILES'
-alias s='source $DOTFILES/.zshrc'
+
+alias s='source ~/.zshrc'
 alias b='source ~/.bashrc'
 
-    alias z='nvim $DOTFILES/zsh/.zshrc'
+alias z='nvim ~/.zshrc'
 alias rc='nvim ~/.bashrc'
-alias aa='nvim $DOTFILES/shell/aliases.sh'
+alias aa='nvim ~/aliases.sh'
 
 # colorize the ls output
 alias ls='ls --color=auto'
@@ -23,8 +24,8 @@ alias g='grep --color=always'
 alias c='clear'
 
 # nvim
-alias nv='cd $DOTFILES/nvim/.config/nvim/lua/'
-alias swp="cd $HOME/.local/state/nvim/swap"
+alias nv='cd ~/.config/nvim/lua'
+alias swp='cd ~/.local/state/nvim/swap'
 
 # history
 alias h='history'
