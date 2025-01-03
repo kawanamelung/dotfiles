@@ -1,6 +1,3 @@
-# shell config
-alias d='cd $DOTFILES'
-
 alias s='source ~/.zshrc'
 alias b='source ~/.bashrc'
 
@@ -23,11 +20,7 @@ alias g='grep --color=always'
 # clear
 alias c='clear'
 
-# nvim
-alias nv='cd ~/.config/nvim/lua'
-alias swp='cd ~/.local/state/nvim/swap'
-
-# history
+# historResume
 alias h='history'
 alias h100='history -n 100'
 
@@ -57,5 +50,14 @@ alias gd='git diff'
 # interactive python
 alias ip='ipython'
 
+# run open street map iD
+# # https://github.com/openstreetmap/iD/wiki/How-to-get-started#build-and-test-instructions
+alias osid='cd $HOME/Python/openstreetmap_id/iD/; npm start'
+
 # gpu
 alias wg='watch -n0.1 nvidia-smi'
+
+# date
+
+TODAY=$(date +"%Y_%m_%d")
+NOW=$(date +"%Y-%m-%d %H:%M:%S")
