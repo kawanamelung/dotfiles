@@ -7,8 +7,7 @@ dab() {
 }
 
 # ascii treez
-export TREE_DIR=$DOTFILES/scripts/ascii_treez/
+export TREE_DIR=$DOTFILES/ascii_treez
 export PYTHONPATH=$TREE_DIR:$PYTHONPATH
 export PATH=$TREE_DIR/treez/cli:$PATH
-alias tr='cd $TREE_DIR'
-
+# alias tr='cd $TREE_DIR'

@@ -1,5 +1,4 @@
-alias s='source ~/.zshrc'
-alias b='source ~/.bashrc'
+alias s='source ~/.profile'
 
 alias z='nvim ~/.zshrc'
 alias rc='nvim ~/.bashrc'
@@ -28,6 +27,11 @@ alias h100='history -n 100'
 alias echop='echo $PATH | tr ":" "\n"'
 alias echopp='echo $PYTHONPATH | tr ":" "\n"'
 alias pp=' | tr ":" "\n"'
+
+
+# naviagation
+alias cdd='cd $DOTFILES'
+alias cdn='cd $DOTFILES/nvim/.config/nvim'
 
 # tmux
 alias t='tmux'
@@ -58,6 +62,5 @@ alias osid='cd $HOME/Python/openstreetmap_id/iD/; npm start'
 alias wg='watch -n0.1 nvidia-smi'
 
 # date
-
 TODAY=$(date +"%Y_%m_%d")
 NOW=$(date +"%Y-%m-%d %H:%M:%S")
