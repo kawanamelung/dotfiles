@@ -102,7 +102,60 @@ gi() {
 #     git status
 #     echo ""
 # done
-tmux_sessions_setup() {
+create_session() {
+    local session_name="$1"
+    shift # Shift to skip the session name
+    local -a windows=()
+    local -a commands=()
+
+    # Read windows array
+    local window_count="$1"
+    shift
+    for (( i = 0; i < window_count; i++ )); do
+        windows+=("$1")
+        shift
+    done
+
+    # Read commands array
+    local command_count="$1"
+    shift
+    for (( i = 0; i < command_count; i++ )); do
+        commands+=("$1")
+        shift
+    done
+
+    # Check if the session already exists
+    tmux has-session -t "$session_name" 2>/dev/null
+    if [ $? != 0 ]; then
+
+        echo "new session: $session_name"
+        tmux new-session -d -s "$session_name"
+
+        # Create windows and send commands
+        for i in "${!windows[@]}"; do
+            echo "new window: ${windows[$i]}"
+            # Create the window
+            tmux new-window -t "$session_name"
+
+            # Send the command to the window
+            local window_command="${commands[$i]}"
+            if [ -n "$window_command" ]; then
+                echo "running command: $window_command"
+                tmux send-keys -t "$session_name:${i+1}" "$window_command" C-m
+            fi
+
+            # rename window
+            local window_name="${windows[$i]}"
+            tmux rename-window "$window_name"
+        done
+
+        echo ""
+    else
+        echo "tmux session exists: $session_name"
+    fi
+}
+
+example_tmux_sessions_setup() {
     # Define session names and their respective window names and commands
     local session1="stamp"
     local windows1=("nvim" "cdr")
@@ -112,62 +165,13 @@ tmux_sessions_setup() {
     local windows2=("nvim")
     local commands2=("ls -la")
 
+    local session3="cap"
+    local windows3=("nvim")
+    local commands3=("cap")
+
     # Function to create a session and its windows
-    create_session() {
-        local session_name="$1"
-        shift # Shift to skip the session name
-        local -a windows=()
-        local -a commands=()
-
-        # Read windows array
-        local window_count="$1"
-        shift
-        for (( i = 0; i < window_count; i++ )); do
-            windows+=("$1")
-            shift
-        done
-
-        # Read commands array
-        local command_count="$1"
-        shift
-        for (( i = 0; i < command_count; i++ )); do
-            commands+=("$1")
-            shift
-        done
-
-        echo "Session: $session_name"
-        echo "Windows: ${windows[*]}"
-        echo "Commands: ${commands[*]}"
-
-        # Check if the session already exists
-        tmux has-session -t "$session_name" 2>/dev/null
-        if [ $? != 0 ]; then
-            echo "Creating new session: $session_name"
-            tmux new-session -d -s "$session_name"
-            echo "Session $session_name created."
-
-            # Create windows and send commands
-            for i in "${!windows[@]}"; do
-                echo "Creating window: ${windows[$i]}"
-                echo "Running command: ${commands[$i]}"
-                local window_name="${windows[$i]}"
-                local window_command="${commands[$i]}"
-
-                # Create the window
-                tmux new-window -t "$session_name" -n "$window_name"
-
-                # Send the command to the window
-                if [ -n "$window_command" ]; then
-                    tmux send-keys -t "$session_name:$i" "$window_command" C-m
-                fi
-            done
-        else
-            echo "Session $session_name already exists."
-        fi
-    }
-
     # Create the sessions by passing the arrays as individual elements
     create_session "$session1" "${#windows1[@]}" "${windows1[@]}" "${#commands1[@]}" "${commands1[@]}"
-    create_session "$session2" "${#windows2[@]}" "${windows2[@]}" "${#commands2[@]}" "${commands2[@]}"
+    create_session "$session2" "${#windows2[@]}" "${#commands2[@]}"
 }
 

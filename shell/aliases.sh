@@ -1,8 +1,9 @@
 alias s='source ~/.profile'
 
-alias z='nvim ~/.zshrc'
-alias rc='nvim ~/.bashrc'
-alias aa='nvim ~/aliases.sh'
+alias z='nvim $DOTFILES/shell/.zshrc'
+alias rc='nvim $DOTFILES/shell/.bashrc'
+alias aa='nvim $DOTFILES/shell/aliases.sh'
+alias p='nvim $HOME/.profile'
 
 # colorize the ls output
 alias ls='ls --color=auto'
